@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#10233D">
+  <title>Administrador · SMG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/admin.js" defer></script>
+</head>
+<body class="admin-page">
+  <div class="admin-shell">
+
+    <!-- Inicio de sesión -->
+    <div id="loginView" hidden>
+      <div class="login-box">
+        <span class="tag">Acceso restringido</span>
+        <h1>Administrador</h1>
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="user">Usuario</label>
+            <input id="user" name="user" type="text" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="pass">Contraseña</label>
+            <input id="pass" name="pass" type="password" autocomplete="current-password" required>
+          </div>
+          <p class="form-note" id="loginNote" role="status" aria-live="polite">Ingresa tus credenciales de administrador.</p>
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+        </form>
+        <p class="back-link"><a href="index.html">← Volver al sitio</a></p>
+      </div>
+    </div>
+
+    <!-- Panel -->
+    <div id="panelView" hidden>
+      <div class="admin-top">
+        <div>
+          <span class="tag">Panel</span>
+          <h1 class="panel-title">Solicitudes recibidas</h1>
+        </div>
+        <div class="admin-actions">
+          <a class="btn btn-ghost btn-sm" href="index.html">Ver sitio</a>
+          <button class="btn btn-ghost btn-sm" type="button" id="refreshBtn">Actualizar</button>
+          <a class="btn btn-primary btn-sm" href="/api/admin/export.csv" id="csvLink">Descargar CSV</a>
+          <button class="btn btn-ghost btn-sm" type="button" id="logoutBtn">Cerrar sesión</button>
+        </div>
+      </div>
+      <p class="count" id="count" role="status" aria-live="polite"></p>
+      <div class="msg-list" id="msgList"></div>
+    </div>
+
+  </div>
+</body>
+</html>
